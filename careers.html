@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishakan Builders</title>
+    <title>Careers @ Vishakan Builders</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
@@ -137,15 +137,18 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(41, 128, 185, 0.3);
         }
-        .success-message {
-            display: none;
-            background: rgba(46, 204, 113, 0.1);
-            color: #27ae60;
-            padding: 1rem;
-            border-radius: 6px;
-            margin-bottom: 1rem;
+        .loading-message {
             text-align: center;
-            border: 1px solid rgba(46, 204, 113, 0.3);
+            padding: 2rem;
+            font-size: 1.2rem;
+            color: #555;
+        }
+        .no-jobs-message {
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.2rem;
+            color: #555;
+            display: none;
         }
         @media (max-width: 768px) {
             .jobs-container {
@@ -173,7 +176,7 @@
 <section class="hero">
     <div class="hero1">
         <div class="text-container">
-            <h2 class="heading">Careers @ Vishakan<span> Builders </h2>
+            <h2 class="heading">Careers @ Vishakan<span> Builders</span></h2>
             <h3>Build the future with us – in Salem and Erode</h3>
             <p>We're always on the lookout for passionate individuals who are ready to shape the infrastructure of tomorrow. Join our experienced, energetic team and contribute to projects that make a real difference in Tamil Nadu.</p>
         </div>
@@ -181,79 +184,14 @@
 </section>
 <section class="job-listings">
     <h2>Current Job Openings</h2>
-    <div class="jobs-container">
-        <div class="job-card">
-            <h3>Site Engineer</h3>
-            <div class="location">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Salem, Tamil Nadu</span>
-            </div>
-            <p>Oversee construction activities, ensure quality standards, and manage on-site operations for our projects in Salem.</p>
-            <div class="requirements">
-                <p><strong>Requirements:</strong></p>
-                <ul>
-                    <li>B.E./Diploma in Civil Engineering</li>
-                    <li>2+ years experience in construction</li>
-                    <li>Strong technical knowledge</li>
-                    <li>Excellent problem-solving skills</li>
-                </ul>
-            </div>
-            <a href="apply.html" class="apply-btn">Apply Now</a>
-        </div>
-        <div class="job-card">
-            <h3>Project Manager</h3>
-            <div class="location">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Erode, Tamil Nadu</span>
-            </div>
-            <p>Lead and manage large-scale construction projects from conception to completion, ensuring timely delivery and quality.</p>
-            <div class="requirements">
-                <p><strong>Requirements:</strong></p>
-                <ul>
-                    <li>B.E. in Civil Engineering</li>
-                    <li>5+ years experience in project management</li>
-                    <li>Strong leadership skills</li>
-                    <li>Budget and timeline management</li>
-                </ul>
-            </div>
-            <a href="apply.html" class="apply-btn">Apply Now</a>
-        </div>
-        <div class="job-card">
-            <h3>AutoCAD Designer</h3>
-            <div class="location">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Salem, Tamil Nadu</span>
-            </div>
-            <p>Create detailed structural drawings and designs using AutoCAD for our construction projects.</p>
-            <div class="requirements">
-                <p><strong>Requirements:</strong></p>
-                <ul>
-                    <li>Proficiency in AutoCAD</li>
-                    <li>1+ year experience in structural drafting</li>
-                    <li>Knowledge of construction standards</li>
-                    <li>Attention to detail</li>
-                </ul>
-            </div>
-            <a href="apply.html" class="apply-btn">Apply Now</a>
-        </div>
-        <div class="job-card">
-            <h3>Marketing Executive</h3>
-            <div class="location">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Erode, Tamil Nadu</span>
-            </div>
-            <p>Promote our services, build client relationships, and contribute to business growth in the region.</p>
-            <div class="requirements">
-                <p><strong>Requirements:</strong></p>
-                <ul>
-                    <li>Any bachelor's degree</li>
-                    <li>Excellent communication skills</li>
-                    <li>Local language proficiency</li>
-                    <li>Sales and marketing experience preferred</li>
-                </ul>
-            </div>
-            <a href="apply.html" class="apply-btn">Apply Now</a>
-        </div>
+    <div id="loading-message" class="loading-message">
+        Loading job openings...
+    </div>
+    <div id="no-jobs-message" class="no-jobs-message">
+        Currently no job openings available. Please check back later.
+    </div>
+    <div id="jobs-container" class="jobs-container">
+        <!-- Jobs will be loaded here dynamically -->
     </div>
 </section>
 <div class="cta">
@@ -317,17 +255,60 @@
         <small>&copy; 2025 Vishaka Builders. All Rights Reserved.</small>
     </div>
 </footer>
+
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const applyButtons = document.querySelectorAll('.apply-btn');
-        applyButtons.forEach(button => {
-            button.addEventListener('click', function () {
-                const position = this.getAttribute('data-position');
-                const location = this.getAttribute('data-location');
-                console.log(`Applying for ${position} in ${location}`);
+document.addEventListener('DOMContentLoaded', function() {
+    const jobsContainer = document.getElementById('jobs-container');
+    const loadingMessage = document.getElementById('loading-message');
+    const noJobsMessage = document.getElementById('no-jobs-message');
+    
+    // Fetch jobs from your API
+    fetch('http://localhost:5000/api/admin/jobs')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(jobs => {
+            loadingMessage.style.display = 'none';
+            
+            if (!jobs || jobs.length === 0) {
+                noJobsMessage.style.display = 'block';
+                return;
+            }
+            
+            // Clear any existing content
+            jobsContainer.innerHTML = '';
+            
+            // Generate HTML for each job
+            jobs.forEach(job => {
+                const jobCard = document.createElement('div');
+                jobCard.className = 'job-card';
+                jobCard.innerHTML = `
+                    <h3>${job.title}</h3>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>${job.location}</span>
+                    </div>
+                    <p>${job.description}</p>
+                    <div class="requirements">
+                        <p><strong>Requirements:</strong></p>
+                        <ul>
+                            ${job.requirements.map(req => `<li>${req}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <a href="apply.html?jobId=${job._id}&position=${encodeURIComponent(job.title)}" class="apply-btn">Apply Now</a>
+                `;
+                jobsContainer.appendChild(jobCard);
             });
+        })
+        .catch(error => {
+            console.error('Error loading jobs:', error);
+            loadingMessage.textContent = 'Failed to load job openings. Please try again later.';
+            noJobsMessage.style.display = 'none';
         });
-    });
+});
 </script>
 </body>
 </html>
