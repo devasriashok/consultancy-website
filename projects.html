@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishakan Builders</title>
+    <title>Our Projects - Vishakan Builders</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
 </head>
 <body>
 <header class="header">
@@ -25,127 +24,35 @@
         <div id="menu-btn" class="fas fa-bars"></div>
     </div>
 </header>
-<section class="home" id="home">
-    <div class="hero">
-        <div class="hero1">
-            <section class="swiper-slide slide" style="background: url('./images/projects1.jpg') no-repeat center center / cover;">
-                <div class="content">
-                    <h3>Building Dreams, One Brick at a Time</h3>
-                    <p>From foundation to finish, Vishaka Builders delivers top-quality construction services tailored for homes and businesses across Tamil Nadu. Trusted by families, powered by values.</p>
-                </div>
-            </section>
-        </div>
+
+<section class="projects-hero">
+    <div class="hero-content">
+        <h1>Our Portfolio of Excellence</h1>
+        <p>Explore our completed projects that showcase our commitment to quality and innovation in construction.</p>
     </div>
 </section>
-<section class="projects-page-white" id="projects-kinetic">
-    <h1 class="heading">Our Projects - Kinetic Concrete</h1>
-    <div class="box-container-projects-white">
-        <a href="./images/project-1.jpg" class="box">
-            <div class="image">
-                <img src="./images/project-1.jpg" alt="">
-            </div>
-            <div class="content">
-                <div class="info">
-                    <h3>Factory Flooring at Mettur</h3>
-                    <p>high-durability concrete, industrial usage</p>
-                </div>
-                <i class="fas fa-plus"></i>
-            </div>
-        </a>
-        <a href="./images/project-2.jpg" class="box">
-            <div class="image">
-                <img src="./images/project-2.jpg" alt="">
-            </div>
-            <div class="content">
-                <div class="info">
-                    <h3>Precast Drain Covers</h3>
-                    <p>custom mold design, kinetic concrete</p>
-                </div>
-                <i class="fas fa-plus"></i>
-            </div>
-        </a>
-        <a href="./images/project-3.jpg" class="box">
-            <div class="image">
-                <img src="./images/project-3.jpg" alt="">
-            </div>
-            <div class="content">
-                <div class="info">
-                    <h3>Roadside Curb Laying</h3>
-                    <p>urban planning, compression strength</p>
-                </div>
-                <i class="fas fa-plus"></i>
-            </div>
-        </a>
-        <a href="./images/project-4.jpg" class="box">
-            <div class="image">
-                <img src="./images/project-4.jpg" alt="">
-            </div>
-            <div class="content">
-                <div class="info">
-                    <h3>Parking Yard in Salem</h3>
-                    <p>heavy load flooring, non-slip finish</p>
-                </div>
-                <i class="fas fa-plus"></i>
-            </div>
-        </a>
+
+<main class="projects-container">
+    <!-- Loading spinner -->
+    <div id="loading-spinner" class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading projects...</p>
     </div>
-</section>
-<section class="projects-page" id="projects-architecture">
-    <h1 class="heading">Our Projects - Architecture, Interior & Home</h1>
-    <div class="box-container-projects">
-        <a href="./images/project-1.jpg" class="box">
-            <div class="image">
-                <img src="./images/project-1.jpg" alt="">
-            </div>
-            <div class="content">
-                <div class="info">
-                    <h3>3BHK House Interior at Seelanaickenpatti</h3>
-                    <p>modular kitchen, false ceiling</p>
-                </div>
-                <i class="fas fa-plus"></i>
-            </div>
-        </a>
-        <a href="./images/project-2.jpg" class="box">
-            <div class="image">
-                <img src="./images/project-2.jpg" alt="">
-            </div>
-            <div class="content">
-                <div class="info">
-                    <h3>Modern Hall Design in Yercaud</h3>
-                    <p>LED lighting, wooden cladding</p>
-                </div>
-                <i class="fas fa-plus"></i>
-            </div>
-        </a>
-        <a href="./images/project-3.jpg" class="box">
-            <div class="image">
-                <img src="./images/project-3.jpg" alt="">
-            </div>
-            <div class="content">
-                <div class="info">
-                    <h3>Kitchen Remodel at Dadagapatti</h3>
-                    <p>storage optimization, granite finish</p>
-                </div>
-                <i class="fas fa-plus"></i>
-            </div>
-        </a>
-        <a href="./images/project-4.jpg" class="box">
-            <div class="image">
-                <img src="./images/project-4.jpg" alt="">
-            </div>
-            <div class="content">
-                <div class="info">
-                    <h3>Exterior Elevation for Independent House</h3>
-                    <p>2D & 3D elevation, front facade</p>
-                </div>
-                <i class="fas fa-plus"></i>
-            </div>
-        </a>
+    
+    <!-- Projects will be loaded dynamically here -->
+    <div id="projects-content"></div>
+    
+    <!-- Error message container -->
+    <div id="error-message" class="error-message" style="display: none;">
+        <i class="fas fa-exclamation-triangle"></i>
+        <p>Failed to load projects. Please try again later.</p>
     </div>
-</section>
+</main>
+
 <div class="button-class">
     <button class="free-consultation">Get Free Quote</button>
 </div>
+
 <footer>
     <div class="container">
         <article>
@@ -167,7 +74,7 @@
             <a href="#">Contact Us</a>
             <a href="#">Privacy Policy</a>
             <a href="#">Terms & Conditions</a>
-            <a href="#">Careers</a>
+            <a href="./careers.html">Careers</a>
         </article>
         <article>
             <h3>Our Services</h3>
@@ -193,12 +100,283 @@
         <small>&copy; 2025 Vishaka Builders. All Rights Reserved.</small>
     </div>
 </footer>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 <script src="./js/script.js"></script>
 <script>
-    lightGallery(document.querySelector('.projects .box-container'));
+    // Pre-selected construction images from Pexels (free to use)
+    const CONSTRUCTION_IMAGES = [
+        "https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg", // Construction site with crane
+        "https://images.pexels.com/photos/3231355/pexels-photo-3231355.jpeg", // Modern house construction
+        "https://images.pexels.com/photos/323776/pexels-photo-323776.jpeg",   // Architectural blueprint
+        "https://images.pexels.com/photos/534220/pexels-photo-534220.jpeg",   // Construction workers
+        "https://images.pexels.com/photos/256559/pexels-photo-256559.jpeg",   // Excavator at work
+        "https://images.pexels.com/photos/159306/pexels-photo-159306.jpeg",   // Skyscraper construction
+        "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg", // Brick wall construction
+        "https://images.pexels.com/photos/280221/pexels-photo-280221.jpeg",   // Construction tools
+        "https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg",   // Concrete pouring
+        "https://images.pexels.com/photos/162553/pexels-photo-162553.jpeg"    // Roof construction
+    ];
+
+    // Function to get a construction image for each project
+    function getConstructionImage(project) {
+        // Use project title to get consistent image for each project
+        const index = project.title 
+            ? project.title.charCodeAt(0) % CONSTRUCTION_IMAGES.length 
+            : Math.floor(Math.random() * CONSTRUCTION_IMAGES.length);
+        return CONSTRUCTION_IMAGES[index];
+    }
+
+    // Function to fetch projects from API
+    async function fetchProjects() {
+        const loadingSpinner = document.getElementById('loading-spinner');
+        const errorMessage = document.getElementById('error-message');
+        const projectsContent = document.getElementById('projects-content');
+        
+        try {
+            // Show loading spinner
+            loadingSpinner.style.display = 'flex';
+            errorMessage.style.display = 'none';
+            projectsContent.innerHTML = '';
+            
+            // Fetch projects from API
+            const response = await fetch('http://localhost:5000/api/projects');
+            
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            
+            const data = await response.json();
+            
+            // Check if data contains projects array
+            if (!data.projects || !Array.isArray(data.projects)) {
+                throw new Error('Invalid data format from API');
+            }
+            
+            // Group projects by category
+            const groupedProjects = groupProjectsByCategory(data.projects);
+            
+            // Render projects
+            renderProjects(groupedProjects);
+            
+        } catch (error) {
+            console.error('Error fetching projects:', error);
+            errorMessage.style.display = 'flex';
+        } finally {
+            loadingSpinner.style.display = 'none';
+        }
+    }
+    
+    // Group projects by their category
+    function groupProjectsByCategory(projects) {
+        if (!Array.isArray(projects)) {
+            console.error('Expected an array of projects, received:', projects);
+            return {};
+        }
+        
+        return projects.reduce((acc, project) => {
+            const category = project.category || 'uncategorized';
+            if (!acc[category]) {
+                acc[category] = [];
+            }
+            acc[category].push(project);
+            return acc;
+        }, {});
+    }
+    
+    // Render projects to the DOM
+    function renderProjects(groupedProjects) {
+        const projectsContent = document.getElementById('projects-content');
+        
+        // If no projects found, show a message
+        if (Object.keys(groupedProjects).length === 0) {
+            projectsContent.innerHTML = `
+                <div class="no-projects">
+                    <i class="fas fa-info-circle"></i>
+                    <p>No projects found. Please check back later.</p>
+                </div>
+            `;
+            return;
+        }
+        
+        for (const [category, projects] of Object.entries(groupedProjects)) {
+            // Create section element
+            const section = document.createElement('section');
+            section.className = category === 'kinetic' ? 'projects-page-white' : 'projects-page';
+            section.id = `projects-${category}`;
+            
+            // Add heading
+            const heading = document.createElement('h1');
+            heading.className = 'heading';
+            heading.textContent = getCategoryTitle(category);
+            section.appendChild(heading);
+            
+            // Create box container
+            const boxContainer = document.createElement('div');
+            boxContainer.className = category === 'kinetic' ? 'box-container-projects-white' : 'box-container-projects';
+            
+            // Add projects
+            projects.forEach(project => {
+                const box = document.createElement('a');
+                box.className = 'box';
+                
+                // Get construction image URL
+                const imageUrl = getConstructionImage(project);
+                box.href = imageUrl;
+                
+                const imageDiv = document.createElement('div');
+                imageDiv.className = 'image';
+                
+                const img = document.createElement('img');
+                img.src = imageUrl;
+                img.alt = project.title || 'Construction project';
+                img.loading = 'lazy';
+                imageDiv.appendChild(img);
+                
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'content';
+                
+                const infoDiv = document.createElement('div');
+                infoDiv.className = 'info';
+                
+                const h3 = document.createElement('h3');
+                h3.textContent = project.title || 'New Project';
+                
+                const p = document.createElement('p');
+                p.textContent = project.description || 'Under construction';
+                
+                infoDiv.appendChild(h3);
+                infoDiv.appendChild(p);
+                
+                const icon = document.createElement('i');
+                icon.className = 'fas fa-plus';
+                
+                contentDiv.appendChild(infoDiv);
+                contentDiv.appendChild(icon);
+                
+                box.appendChild(imageDiv);
+                box.appendChild(contentDiv);
+                
+                boxContainer.appendChild(box);
+            });
+            
+            section.appendChild(boxContainer);
+            projectsContent.appendChild(section);
+        }
+        
+        // Initialize lightGallery after content is loaded
+        if (typeof lightGallery === 'function') {
+            lightGallery(document.querySelector('.projects-container'), {
+                selector: '.box',
+                download: false,
+                zoom: false
+            });
+        }
+    }
+    
+    // Helper function to get proper category titles
+    function getCategoryTitle(category) {
+        const titles = {
+            'kinetic': 'Our Projects - Kinetic Concrete',
+            'architecture': 'Our Projects - Architecture, Interior & Home',
+            'default': `Our Projects - ${category.charAt(0).toUpperCase() + category.slice(1)}`
+        };
+        
+        return titles[category] || titles.default;
+    }
+    
+    // Load projects when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if the current page is projects.html before executing
+        if (window.location.pathname.includes('projects.html')) {
+            fetchProjects();
+        }
+    });
 </script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<style>
+    /* Add these styles to your CSS file or in a style tag */
+    .loading-spinner {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+    }
+    
+    .spinner {
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #3498db;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+        margin-bottom: 1rem;
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    .error-message {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        color: #e74c3c;
+    }
+    
+    .error-message i {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .no-projects {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        color: #3498db;
+    }
+    
+    .no-projects i {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Style for images */
+    .image {
+        position: relative;
+        overflow: hidden;
+        padding-top: 75%; /* 4:3 aspect ratio */
+    }
+    
+    .image img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .box:hover .image img {
+        transform: scale(1.1);
+    }
+    
+    /* Light gallery customization */
+    .lg-backdrop {
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+    
+    .lg-toolbar {
+        background-color: transparent;
+    }
+</style>
 </body>
 </html>
